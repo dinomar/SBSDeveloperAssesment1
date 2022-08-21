@@ -1,0 +1,96 @@
+﻿@model SBSDeveloperAssesment1.Models.ViewModels.PersonInfoViewModel
+
+@{
+    ViewData["Title"] = "Person Info";
+}
+
+<h4>Person Info</h4>
+<hr />
+<form class="row" asp-action="Index">
+    <div class="col-md-6">
+        <input asp-for="Person.Id" type="hidden" />
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Person.Name" class="control-label"></label>
+            <input asp-for="Person.Name" class="form-control" readonly />
+            <span asp-validation-for="Person.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Person.Surname" class="control-label"></label>
+            <input asp-for="Person.Surname" class="form-control" readonly />
+            <span asp-validation-for="Person.Surname" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Person.LastLogin" class="control-label"></label>
+            <input class="form-control" value="@Model.Person.LastLogin.ToString("dd/MM/yyyy hh:mm tt")" readonly />
+            <span asp-validation-for="Person.LastLogin" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">New Password</label>
+            <input class="form-control" name="Person.Password" type="password"/>
+            <span asp-validation-for="Person.Password" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <input asp-for="Info.Id" class="form-control" type="hidden" />
+        <input asp-for="Info.PersonId" class="form-control" type="hidden" />
+        <div class="form-group">
+            <label asp-for="Info.TelNo" class="control-label"></label>
+            <input asp-for="Info.TelNo" class="form-control" />
+            <span asp-validation-for="Info.TelNo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info.CellNo" class="control-label"></label>
+            <input asp-for="Info.CellNo" class="form-control" />
+            <span asp-validation-for="Info.CellNo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info.AddressLine1" class="control-label"></label>
+            <input asp-for="Info.AddressLine1" class="form-control" />
+            <span asp-validation-for="Info.AddressLine1" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info.AddressLine2" class="control-label"></label>
+            <input asp-for="Info.AddressLine2" class="form-control" />
+            <span asp-validation-for="Info.AddressLine2" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info.AddressLine3" class="control-label"></label>
+            <input asp-for="Info.AddressLine3" class="form-control" />
+            <span asp-validation-for="Info.AddressLine3" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info.AddressCode" class="control-label"></label>
+            <input asp-for="Info.AddressCode" class="form-control" />
+            <span asp-validation-for="Info.AddressCode" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info.PostalAddress1" class="control-label"></label>
+            <input asp-for="Info.PostalAddress1" class="form-control" />
+            <span asp-validation-for="Info.PostalAddress1" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info.PostalAddress2" class="control-label"></label>
+            <input asp-for="Info.PostalAddress2" class="form-control" />
+            <span asp-validation-for="Info.PostalAddress2" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Info.PostalCode" class="control-label"></label>
+            <input asp-for="Info.PostalCode" class="form-control" />
+            <span asp-validation-for="Info.PostalCode" class="text-danger"></span>
+        </div>
+
+        <hr />
+
+        <div class="form-group text-right">
+            <input type="submit" value="Update" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
